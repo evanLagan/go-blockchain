@@ -1,7 +1,6 @@
 # Simple Blockchain Prototype in Go
 
 This is a basic blockchain prototype implemented in Go.  
-It demonstrates the core concepts of a blockchain, including:
 
 - Each block contains a timestamp, data, the previous block's hash, and its own hash.
 - Blocks are linked together via cryptographic hashes, ensuring tamper-evidence.
