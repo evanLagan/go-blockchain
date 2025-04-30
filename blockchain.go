@@ -14,8 +14,7 @@ func NewBlockchain() *Blockchain {
 		Data:      "Genesis Block",
 		PrevHash:  "",
 	}
-
-	genesisBlock.GenerateHash()
+	genesisBlock.MineBlock()
 
 	return &Blockchain{[]Block{genesisBlock}}
 }
@@ -27,6 +26,6 @@ func (bc *Blockchain) AddBlock(data string) {
 		Data:      data,
 		PrevHash:  prevBlock.Hash,
 	}
-	newBlock.GenerateHash()
+	newBlock.MineBlock()
 	bc.Blocks = append(bc.Blocks, newBlock)
 }
