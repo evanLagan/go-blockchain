@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"strings"
 	"time"
 )
 
@@ -27,5 +29,29 @@ func (bc *Blockchain) AddBlock(data string) {
 		PrevHash:  prevBlock.Hash,
 	}
 	newBlock.MineBlock()
-	bc.Blocks = append(bc.Blocks, newBlock)
+
+	if isValidBlock(newBlock, prevBlock) {
+		bc.Blocks = append(bc.Blocks, newBlock)
+		fmt.Println("Block added to the chain")
+	} else {
+		fmt.Println("Invalid block. Not added")
+	}
+}
+
+func isValidBlock(newBlock, prevBlock Block) bool {
+	if newBlock.PrevHash != prevBlock.Hash {
+		return false
+	}
+
+	expectedHash := newBlock.calculateHash()
+	if newBlock.Hash != expectedHash {
+		return false
+	}
+
+	// Check proof of work
+	if !strings.HasPrefix(newBlock.Hash, strings.Repeat("0", difficulty)) {
+		return false
+	}
+
+	return true
 }
