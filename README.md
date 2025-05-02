@@ -3,7 +3,7 @@
 This is a basic blockchain prototype implemented in Go.  
 
 - Each block contains a timestamp, data, the previous block's hash, and its own hash.
-- Blocks are linked together via cryptographic hashes, ensuring tamper-evidence.
+- Blocks are linked together via cryptographic hashes.
 - The blockchain is stored in memory and can be printed to the terminal.
 
 ## How It Works
