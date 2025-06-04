@@ -13,4 +13,8 @@ This is a basic blockchain prototype implemented in Go.
 - Hashes are generated using SHA-256 over the block’s data, timestamp, and previous hash.
 
 ## Running the Project
-go run .
+go run .  
+-> Shows the usage commands
+    go run . addblock "Enter some data here"
+    go run . printchain
+    go run . validate
