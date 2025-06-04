@@ -6,13 +6,12 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-	"time"
 )
 
 const difficulty = 4 // Hash must start with "0000". This value can be changed. Lower values = Less computaion. Higher values = Greater computation
 
 type Block struct {
-	Timestamp time.Time
+	Timestamp string
 	Data      string
 	PrevHash  string
 	Hash      string
@@ -20,7 +19,7 @@ type Block struct {
 }
 
 func (b *Block) calculateHash() string {
-	record := b.Timestamp.String() + b.Data + b.PrevHash + strconv.Itoa(b.Nonce)
+	record := b.Timestamp + b.Data + b.PrevHash + strconv.Itoa(b.Nonce)
 	h := sha256.New()
 	h.Write([]byte(record))
 	hashed := h.Sum(nil)
