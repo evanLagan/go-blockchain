@@ -18,3 +18,8 @@ go run .
     go run . addblock "Enter some data here"
     go run . printchain
     go run . validate
+
+go run . serve
+-> Starts the HTTP server which currently have the follwoing endpoints
+    /chain (prints the current blockchain)
+    /addblock (adds a block with specified data to the chain)
