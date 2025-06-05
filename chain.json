@@ -26,5 +26,12 @@
     "PrevHash": "0000e533ad33714f5a72487e5559355150f49f87a0ce56495f895a8555bceca3",
     "Hash": "00001fd114bbf6c6aec35f92a00ad10dd5b13cece1b16eaf6fd3a3adfafbbaa0",
     "Nonce": 33355
+  },
+  {
+    "Timestamp": "2025-06-05T23:58:24+01:00",
+    "Data": "Alice paid bob 20 euros",
+    "PrevHash": "00001fd114bbf6c6aec35f92a00ad10dd5b13cece1b16eaf6fd3a3adfafbbaa0",
+    "Hash": "00007dee393c137b0df5b4978aaa5bf57b60eba7f923d17531b3d3437bd730ff",
+    "Nonce": 14040
   }
 ]

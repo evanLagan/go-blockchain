@@ -6,19 +6,27 @@ import (
 	"strings"
 )
 
+var chain *Blockchain // global to share between CLI and HTTP
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage:")
-		fmt.Println("	addblock \"some data\"")
-		fmt.Println("	printchain")
-		fmt.Println("	validate")
+		fmt.Println("	addblock \"some data\"  - Add a new block")
+		fmt.Println("	printchain			 	- Show all blocks")
+		fmt.Println("	validate				- Check chain validity")
+		fmt.Println("	serve					- Run HTTP API (port 8080)")
 		return
 	}
 
 	command := os.Args[1]
 
-	switch command {
+	if command == "serve" {
+		chain = LoadFromDisk()
+		StartServer("8080")
+		return
+	}
 
+	switch command {
 	case "addblock", "printchain", "validate":
 		chain := LoadFromDisk()
 		switch command {
