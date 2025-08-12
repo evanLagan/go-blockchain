@@ -14,13 +14,16 @@ This is a basic blockchain prototype implemented in Go.
 - Hashes are generated using SHA-256 over the block’s data, timestamp, and previous hash.
 
 ## Running the Project
-go run .  
+```bash
+go run .
+```
 -> Shows the usage commands
     go run . addblock "Enter some data here"
     go run . printchain
     go run . validate
-
+```bash
 go run . serve
+```
 -> Starts the HTTP server which currently have the follwoing endpoints
     /chain (prints the current blockchain)
     /addblock (adds a block with specified data to the chain)
@@ -51,11 +54,11 @@ go run . serve
 ```
 
 
-To view the contexts of the chain use:
+To view the contents of the chain use:
 ```bash
 curl.exe -s http://localhost:8080/chain
 ```
-Now add a block to anyone of the nodes, for example Node B:
+Now add a block to any one of the nodes, for example Node B:
 ```bash
 curl.exe -s http://localhost:8081/addblock -X POST -d "Lisa gave Norman 15"
 ```
