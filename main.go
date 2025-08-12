@@ -8,6 +8,21 @@ import (
 
 var chain *Blockchain // global to share between CLI and HTTP
 
+var peers []string
+
+func init() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	os.Setenv("PORT", port)
+
+	rawPeers := os.Getenv("PEERS")
+	if rawPeers != "" {
+		peers = strings.Split(rawPeers, ",")
+	}
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		fmt.Println("Usage:")
@@ -22,13 +37,17 @@ func main() {
 
 	if command == "serve" {
 		chain = LoadFromDisk()
-		StartServer("8080")
+		port := os.Getenv("PORT")
+		if port == "" {
+			port = "8080"
+		}
+		StartServer(port)
 		return
 	}
 
 	switch command {
 	case "addblock", "printchain", "validate":
-		chain := LoadFromDisk()
+		chain = LoadFromDisk()
 		switch command {
 		case "addblock":
 			if len(os.Args) < 3 {

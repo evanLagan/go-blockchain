@@ -33,5 +33,26 @@
     "PrevHash": "00001fd114bbf6c6aec35f92a00ad10dd5b13cece1b16eaf6fd3a3adfafbbaa0",
     "Hash": "00007dee393c137b0df5b4978aaa5bf57b60eba7f923d17531b3d3437bd730ff",
     "Nonce": 14040
+  },
+  {
+    "Timestamp": "2025-08-11T13:41:13+01:00",
+    "Data": "John gave Lisa 40",
+    "PrevHash": "00007dee393c137b0df5b4978aaa5bf57b60eba7f923d17531b3d3437bd730ff",
+    "Hash": "0000eac0303fdc59af4a9622187afa0da0432102297fb0c19d9e45f899cb4cf5",
+    "Nonce": 143170
+  },
+  {
+    "Timestamp": "2025-08-11T16:27:08+01:00",
+    "Data": "Daniel paid Sean 20",
+    "PrevHash": "0000eac0303fdc59af4a9622187afa0da0432102297fb0c19d9e45f899cb4cf5",
+    "Hash": "0000ad23f5f928f32bbac11d6e1a16522b1f4f484646d3080719f371dbdcd0b1",
+    "Nonce": 19345
+  },
+  {
+    "Timestamp": "2025-08-12T21:42:05+01:00",
+    "Data": "Lisa gave Norman 15",
+    "PrevHash": "0000ad23f5f928f32bbac11d6e1a16522b1f4f484646d3080719f371dbdcd0b1",
+    "Hash": "00007bcf6fdd31e02500f014fe2308cc3129851a9aeb2c6fd406856a6c949f47",
+    "Nonce": 1485
   }
 ]

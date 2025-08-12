@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"os"
 	"strings"
 	"time"
@@ -65,6 +66,19 @@ func (bc *Blockchain) AddBlock(data string) {
 		bc.Blocks = append(bc.Blocks, newBlock)
 		bc.SaveToDisk()
 		fmt.Println("Block added to the chain")
+
+		// Broadcasting to peers
+		for _, peer := range peers {
+			go func(peer string) {
+				jsonData, _ := json.Marshal(newBlock)
+				resp, err := http.Post(peer+"/receive", "application/json", strings.NewReader(string(jsonData)))
+				if err != nil {
+					fmt.Printf("Failed to broadcast to %s: %v\n", peer, err)
+				}
+				defer resp.Body.Close()
+				fmt.Printf("Broadcasted to %s\n", peer)
+			}(peer)
+		}
 	} else {
 		fmt.Println("Invalid block. Not added")
 	}
